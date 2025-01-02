@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Making the card Easily</title>
+    <style>
+        *{
+            font-family: Arial, sans-serif;
+            margin: 0px;
+            padding: 0px;
+        }
+        body{
+            background-color: #121212;
+            color: white;
+        }
+        .spotifyPlaylist {
+            padding: 16px;
+        }
+
+        .spotifyPlaylist .card {
+            width: 200px;
+            padding: 10px;
+            border-radius: 5px;
+            background-color: #252525;
+        }
+
+        .card>* {
+            padding-top: 7px;
+        }
+
+        .card img {
+            width: 100%;
+            object-fit: contain;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="spotifyPlaylist">
+        <h1>Spotify Playlist</h1>
+        <div class="cardContainer">
+            <div class="card">
+                <img src="https://i.scdn.co/image/ab67706f0000000242ede53dcaaa172b7bbca101" alt="">
+                <h2>Happy Hits</h2>
+                <p>Hits to boost your mood and fill your with happiness</p>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
