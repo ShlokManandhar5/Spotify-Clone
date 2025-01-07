@@ -34,11 +34,13 @@ async function getSongs() {
 
 }
 
-const playMusic = (track) => {
+const playMusic = (track, pause=false) => {
     currentSong.src = "/songs/" + track;  
-    currentSong.play();
-    play.src = "svgs/pause.svg";
-    document.querySelector(".songInfo").innerHTML = track;
+    if (!pause) {
+        currentSong.play();
+        play.src = "svgs/pause.svg";
+    }
+    document.querySelector(".songInfo").innerHTML = decodeURI(track);
     document.querySelector(".songTime").innerHTML = "00:00 / 00:00";
 }
 
@@ -47,7 +49,8 @@ async function main() {
 
     //get the list of all the songs 
     let songs = await getSongs();
-    console.log(songs);
+    playMusic(songs[0], true);
+    // console.log(songs);
 
     //Show all the songs in the playlist 
     let songUL = document.querySelector('.songList').getElementsByTagName('ul')[0];
