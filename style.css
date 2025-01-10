@@ -85,7 +85,7 @@ body{
     gap: 25px;
     flex-wrap: wrap;
     justify-content: flex-start;
-    overflow: scroll;
+    overflow-y: auto;
     max-height: 70vh;
 }
 
@@ -173,7 +173,7 @@ body{
     width: 70vw;
     padding: 12px;
     margin: 8px 14px;
-    min-height: 40px;
+    min-height: 45px;
 }
 
 .songButtons {
@@ -217,19 +217,19 @@ body{
 }
 
 .seekBar{
-    height: 4px;
+    height: 5px;
     width: 96%;
     border-radius: 10px;
     background-color: black;
     position: absolute;
     bottom: 0;
-    margin: 10px;
+    margin: 12px 9px;
     cursor: pointer;
 }
 .circle{
-    width: 13px;
-    height: 13px;
-    border-radius: 13px;
+    width: 14px;
+    height: 14px;
+    border-radius: 14px;
     background-color: black;
     position: relative;
     bottom: 5px;
@@ -259,6 +259,7 @@ body{
 .aboveBar{
     display: flex;
     justify-content: space-between;
+    align-items: center;
 }
 
 .hamBurger{
@@ -266,6 +267,10 @@ body{
 }
 .close{
     display: none;
+}
+.playBarContainer{
+    display: flex;
+    justify-content: center;
 }
 
 @media screen and (max-width: 1260px){
@@ -287,6 +292,7 @@ body{
     }
     .container .right{
         width: 100vw;
+        margin: 0px;
     }
     .right .playBar{
         width: 95vw;
@@ -300,4 +306,51 @@ body{
         display: block;
         cursor: pointer;
     }
+}
+
+@media screen and (max-width: 945px){
+    .right .playBar{
+        width: 90vw;
+    }
+    .playBar .seekBar{
+        width: 93%;
+    }
+}
+
+@media screen and (max-width: 428px){
+    .spotifyPlaylist h1{
+        font-size: 24px;
+    }
+    .spotifyPlaylist .cardContainer{
+        margin: 18px;
+    }
+    .cardContainer .card{
+        width: 150px;
+    }
+    .buttons .signupBtn{
+        font-size: 14px;
+    }
+    .buttons .loginBtn{
+        padding: 8px;
+        width: 70px;
+        border: none;
+        font-size: 14px;
+    }
+    .right .header{
+        height: 10vh;
+    }
+    .aboveBar{
+        font-size: 13.5px;
+    }
+    .songButtons img{
+        width: 20px;
+    }
+    .playBar .seekBar {
+        width: 90%;
+    }
+    .right .playBar{
+        min-height: 35px;
+        margin: 0px 14px;
+    }
+
 }
