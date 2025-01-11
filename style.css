@@ -4,6 +4,7 @@
     padding: 0;
     margin: 0;
     font-family: 'Roboto', sans-serif;
+    box-sizing: border-box;
 }
 
 body{
@@ -12,10 +13,12 @@ body{
 .left {
     width: 25vw;
     padding: 10px;
+    min-height: 95vh;
 }
 
 .right {
     width: 75vw;
+    min-height: 95vh;
     margin: 16px 0;
     position: relative;
 }
@@ -68,11 +71,12 @@ body{
     display: flex;
     justify-content: space-between;
     background-color: rgb(34, 34, 34);
-    height: 10vh;
+    height: 10vh;    
+    align-items: center;
 }
 
 .header>* {
-    padding: 20px;
+    padding: 0px 10px;
 }
 
 .spotifyPlaylist {
@@ -173,7 +177,7 @@ body{
     width: 70vw;
     padding: 12px;
     margin: 8px 14px;
-    min-height: 45px;
+    min-height: 65px;
 }
 
 .songButtons {
@@ -219,6 +223,7 @@ body{
 .seekBar{
     height: 5px;
     width: 96%;
+    max-width: 96%; 
     border-radius: 10px;
     background-color: black;
     position: absolute;
@@ -271,6 +276,9 @@ body{
 .playBarContainer{
     display: flex;
     justify-content: center;
+    align-items: center;
+    padding: 10px;
+    box-sizing: border-box; 
 }
 
 @media screen and (max-width: 1260px){
@@ -308,6 +316,13 @@ body{
     }
 }
 
+@media screen and (max-width: 1200px) {
+    .buttons .loginBtn{
+        padding: 9px 7px;
+        width: 80px
+    }
+}
+
 @media screen and (max-width: 945px){
     .right .playBar{
         width: 90vw;
@@ -315,6 +330,33 @@ body{
     .playBar .seekBar{
         width: 93%;
     }
+    .buttons .loginBtn {
+        padding: 8px;
+        width: 70px;
+        border: none;
+        font-size: 14px;
+    }
+    .buttons .signupBtn {
+        font-size: 14px;
+    }
+    .nav img{
+        width: 25px;
+        height: auto;
+    }
+}
+@media screen and (max-width: 768px) {
+    .playBar {
+        max-width: 90vw; /* Smaller cap */
+        padding: 10px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .playBar {
+        max-width: 88vw;
+        padding: 8px;
+        min-height: 55px;
+}
 }
 
 @media screen and (max-width: 428px){
@@ -349,8 +391,24 @@ body{
         width: 90%;
     }
     .right .playBar{
-        min-height: 35px;
+        min-height: 55px;
         margin: 0px 14px;
     }
-
+    .nav img{
+        width: 25px;
+        height: auto;
+    }
+}
+@media screen and (max-width: 380px){
+       .nav img{
+        width: 18px;
+        height: auto;
+       }
+       .buttons .loginBtn {
+        width: 60px;
+        font-size: 12px;
+       }
+       .buttons .signupBtn {
+        font-size: 12px;
+       }
 }
