@@ -198,13 +198,12 @@ body{
 
 .songList ul li {
     display: flex;
-    gap: 5px;
     cursor: pointer;
     border: 1px solid white;
     margin: 12px 0;
-    padding: 8px;
+    padding: 15px 5px;
     border-radius: 5px;
-    justify-content: space-evenly;
+    justify-content: space-around;
     align-items: center;
 }
 
@@ -212,12 +211,12 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
+    gap: 8px;
 }
 
 .playNow span {
     font-size: 15px;
     width: 64px;
-    padding: 12px 4px;
 }
 
 .seekBar{
@@ -245,7 +244,7 @@ body{
 .songList .info{
     display: flex;
     font-size: 13px;
-    width: 100px;
+    width: 115px;
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
@@ -287,7 +286,7 @@ body{
         left: -120%;
         transition: all .6s;
         z-index: 1;
-        width: 350px;
+        width: 365px;
         background-color: black;
     }
     .left .close{
@@ -410,5 +409,8 @@ body{
        }
        .buttons .signupBtn {
         font-size: 12px;
+       }
+       .container .left{
+        width: 350px;
        }
 }
