@@ -7,17 +7,18 @@
     box-sizing: border-box;
 }
 
-body{
+body {
     background-color: black;
 }
+
 .left {
-    width: 25vw;
+    width: 27vw;
     padding: 10px;
     min-height: 95vh;
 }
 
 .right {
-    width: 75vw;
+    width: 73vw;
     min-height: 95vh;
     margin: 16px 0;
     position: relative;
@@ -71,7 +72,7 @@ body{
     display: flex;
     justify-content: space-between;
     background-color: rgb(34, 34, 34);
-    height: 10vh;    
+    height: 10vh;
     align-items: center;
 }
 
@@ -87,10 +88,11 @@ body{
     display: flex;
     margin: 30px;
     gap: 25px;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     justify-content: flex-start;
     overflow-y: auto;
     max-height: 70vh;
+    flex-direction: row;
 }
 
 .spotifyPlaylist .card {
@@ -116,9 +118,10 @@ body{
     position: relative;
 }
 
-.card h3{
+.card h3 {
     font-size: 16px;
 }
+
 .card p {
     font-size: 13px;
 }
@@ -186,7 +189,7 @@ body{
     gap: 16px;
 }
 
-.songList{
+.songList {
     height: 380px;
     overflow: auto;
     margin-bottom: 44px;
@@ -219,10 +222,10 @@ body{
     width: 64px;
 }
 
-.seekBar{
+.seekBar {
     height: 5px;
     width: 96%;
-    max-width: 96%; 
+    max-width: 96%;
     border-radius: 10px;
     background-color: black;
     position: absolute;
@@ -230,18 +233,19 @@ body{
     margin: 12px 9px;
     cursor: pointer;
 }
-.circle{
+
+.circle {
     width: 14px;
     height: 14px;
     border-radius: 14px;
     background-color: black;
     position: relative;
     bottom: 5px;
-    left:0%;
+    left: 0%;
     transition: left 0.5s;
 }
 
-.songList .info{
+.songList .info {
     display: flex;
     font-size: 13px;
     width: 115px;
@@ -254,34 +258,37 @@ body{
     cursor: pointer;
 }
 
-.songInfo, .songTime {
+.songInfo,
+.songTime {
     color: black;
     padding: 0px 12px;
 }
 
 
-.aboveBar{
+.aboveBar {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-.hamBurger{
+.hamBurger {
     display: none;
 }
-.close{
+
+.close {
     display: none;
 }
-.playBarContainer{
+
+.playBarContainer {
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 10px;
-    box-sizing: border-box; 
+    box-sizing: border-box;
 }
 
-@media screen and (max-width: 1260px){
-    .container .left{
+@media screen and (max-width: 1260px) {
+    .container .left {
         position: absolute;
         left: -120%;
         transition: all .6s;
@@ -289,7 +296,8 @@ body{
         width: 365px;
         background-color: black;
     }
-    .left .close{
+
+    .left .close {
         display: block;
         position: absolute;
         top: 31px;
@@ -297,120 +305,175 @@ body{
         width: 30px;
         cursor: pointer;
     }
-    .container .right{
+
+    .container .right {
         width: 100vw;
         margin: 0px;
     }
-    .right .playBar{
+
+    .right .playBar {
         width: 95vw;
     }
-    .nav{
-        display: flex ;
+
+    .nav {
+        display: flex;
         gap: 10px;
         align-items: center;
     }
-    .hamBurger{
+
+    .hamBurger {
         display: block;
         cursor: pointer;
     }
 }
 
 @media screen and (max-width: 1200px) {
-    .buttons .loginBtn{
+    .buttons .loginBtn {
         padding: 9px 7px;
         width: 80px
     }
+
 }
 
-@media screen and (max-width: 945px){
-    .right .playBar{
-        width: 90vw;
+@media screen and (max-width: 945px) {
+    .right .playBar {
+        width: 95vw;
     }
-    .playBar .seekBar{
-        width: 93%;
+
+    .playBar .seekBar {
+        width: 95%;
     }
+
     .buttons .loginBtn {
         padding: 8px;
         width: 70px;
         border: none;
         font-size: 14px;
     }
+
     .buttons .signupBtn {
         font-size: 14px;
     }
-    .nav img{
+
+    .nav img {
         width: 25px;
         height: auto;
     }
 }
+
 @media screen and (max-width: 768px) {
     .playBar {
-        max-width: 90vw; /* Smaller cap */
+        max-width: 90vw;
+        /* Smaller cap */
         padding: 10px;
+    }
+    .right .spotifyPlaylist {
+        padding: 8px;
     }
 }
 
 @media screen and (max-width: 480px) {
     .playBar {
-        max-width: 88vw;
+        max-width: 92vw;
         padding: 8px;
         min-height: 55px;
-}
+    }
+
+    .aboveBar .songInfo,
+    .songTime {
+        padding: 0px 0px;
+    }
+
+    .playBar .aboveBar {
+        font-size: 12.5px;
+    }
+    .songButtons img {
+        width: 20px;
+    }
+    .spotifyPlaylist .cardContainer {
+        justify-content: center;
+    }
 }
 
-@media screen and (max-width: 428px){
-    .spotifyPlaylist h1{
+@media screen and (max-width: 428px) {
+    .spotifyPlaylist h1 {
         font-size: 24px;
     }
-    .spotifyPlaylist .cardContainer{
+
+    .spotifyPlaylist .cardContainer {
         margin: 18px;
     }
-    .cardContainer .card{
+
+    .cardContainer .card {
         width: 150px;
     }
-    .buttons .signupBtn{
+
+    .buttons .signupBtn {
         font-size: 14px;
     }
-    .buttons .loginBtn{
+
+    .buttons .loginBtn {
         padding: 8px;
         width: 70px;
         border: none;
         font-size: 14px;
     }
-    .right .header{
+
+    .right .header {
         height: 10vh;
     }
-    .aboveBar{
+
+    .aboveBar {
         font-size: 13.5px;
-    }
-    .songButtons img{
-        width: 20px;
     }
     .playBar .seekBar {
         width: 90%;
     }
-    .right .playBar{
+
+    .right .playBar {
         min-height: 55px;
         margin: 0px 14px;
     }
-    .nav img{
+
+    .nav img {
         width: 25px;
         height: auto;
     }
 }
-@media screen and (max-width: 380px){
-       .nav img{
+
+@media screen and (max-width: 380px) {
+    .nav img {
         width: 18px;
         height: auto;
-       }
-       .buttons .loginBtn {
+    }
+
+    .buttons .loginBtn {
         width: 60px;
         font-size: 12px;
-       }
-       .buttons .signupBtn {
+    }
+
+    .buttons .signupBtn {
         font-size: 12px;
-       }
-       .container .left{
+    }
+
+    .container .left {
         width: 350px;
-       }
+    }
+
+    .aboveBar .songInfo,
+    .songTime {
+        padding: 0px 0px;
+    }
+
+    .playBar .aboveBar {
+        font-size: 12px;
+    }
+
+    .songButtons img {
+        width: 15px;
+    }
+
+    .aboveBar .songButtons {
+        gap: 10px;
+    }
 }
