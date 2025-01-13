@@ -1,5 +1,6 @@
 
 let currentSong= new Audio();
+let song;
 
 function secondsToMinutesSeconds(seconds) {
     if (isNaN(seconds) || seconds < 0) {
@@ -104,14 +105,35 @@ async function main() {
         
     })
 
-    // Add an event listener to the hamBurger button
+    // Add an event listener to the hamBurger button (to toggle the left part )
     document.querySelector('.hamBurger').addEventListener('click', () => {
         document.querySelector('.left').style.left = "0";
     })
     
-    // Add an event listener to the close button
+    // Add an event listener to the close button (to toggle the left part )
     document.querySelector('.close').addEventListener('click', () => {
         document.querySelector('.left').style.left = "-120%";
+    })
+
+    // Add a event listener to previous and next 
+    previous.addEventListener("click", ()=>{
+        // console.log("Previous clicked ");
+        let index = songs.indexOf(currentSong.src.split('/').slice(-1)[0])
+        // console.log(songs,index);
+        if((index - 1) >= 0){
+            playMusic(songs[index-1])
+        }
+    })
+    next.addEventListener("click", ()=>{
+        // console.log("Next clicked ");
+        let index = songs.indexOf(currentSong.src.split('/').slice(-1)[0])
+        // console.log(songs,index);
+        if((index + 1) < songs.length){
+            playMusic(songs[index+1])
+        }
+        else{
+            playMusic(songs[0])
+        }
     })
 }
 
