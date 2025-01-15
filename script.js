@@ -1,6 +1,7 @@
 
 let currentSong= new Audio();
 let songs;
+let currfolder;
 
 function secondsToMinutesSeconds(seconds) {
     if (isNaN(seconds) || seconds < 0) {
@@ -18,8 +19,11 @@ function secondsToMinutesSeconds(seconds) {
 
 
 async function getSongs(folder) {
+    currfolder = folder;
     let a = await fetch(`http://127.0.0.1:5500/songs/${folder}/`);
+    console.log(folder);
     let response = await a.text()
+    // console.log(response);
     let div = document.createElement('div');
     div.innerHTML = response;
     let as = div.getElementsByTagName('a');
@@ -31,12 +35,13 @@ async function getSongs(folder) {
             songs.push(element.href.split(`/${folder}/`)[1]);
         }
     }
+    // console.log(songs);
     return songs;
 
 }
 
 const playMusic = (track, pause=false) => {
-    currentSong.src = `/${folder}/` + track;  
+    currentSong.src = `/${currfolder}/` + track;
     if (!pause) {
         currentSong.play();
         play.src = "svgs/pause.svg";
@@ -45,15 +50,15 @@ const playMusic = (track, pause=false) => {
     document.querySelector(".songTime").innerHTML = "00:00 / 00:00";
 }
 
-
 async function main() {
 
-    //get the list of all the songs 
-    songs = await getSongs("songs/kumaSagar");
+    //get the list of all the songs
+    songs = await getSongs("kumaSagar");
+    // console.log(songs);
     playMusic(songs[0], true);
     // console.log(songs);
 
-    //Show all the songs in the playlist 
+    //Show all the songs in the playlist
     let songUL = document.querySelector('.songList').getElementsByTagName('ul')[0];
     for (const song of songs) {
         let songName = song.replaceAll("%20", " ").replaceAll("%2C", " ").replaceAll("%26", " ");
@@ -94,7 +99,7 @@ async function main() {
     currentSong.addEventListener('timeupdate', () => {
         // console.log(currentSong.currentTime, currentSong.duration);
         document.querySelector(".songTime").innerHTML = `${secondsToMinutesSeconds(currentSong.currentTime)} / ${secondsToMinutesSeconds(currentSong.duration)}`;
-        document.querySelector(".circle").style.left = `${(currentSong.currentTime / currentSong.duration) * 100 + "%"}`; 
+        document.querySelector(".circle").style.left = `${(currentSong.currentTime / currentSong.duration) * 100 + "%"}`;
     });
 
     // Add an event listener to the seekbarr
@@ -102,20 +107,20 @@ async function main() {
         let percent=( e.offsetX/e.target.getBoundingClientRect().width) * 100;
         document.querySelector(".circle").style.left = percent + "%";
         currentSong.currentTime = ((currentSong.duration) * percent)/100;
-        
+
     })
 
     // Add an event listener to the hamBurger button (to toggle the left part )
     document.querySelector('.hamBurger').addEventListener('click', () => {
         document.querySelector('.left').style.left = "0";
     })
-    
+
     // Add an event listener to the close button (to toggle the left part )
     document.querySelector('.close').addEventListener('click', () => {
         document.querySelector('.left').style.left = "-120%";
     })
 
-    // Add a event listener to previous and next 
+    // Add a event listener to previous and next
     previous.addEventListener("click", ()=>{
         // console.log("Previous clicked ");
         let index = songs.indexOf(currentSong.src.split('/').slice(-1)[0])
