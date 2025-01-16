@@ -119,6 +119,10 @@ body {
     object-fit: cover;
 }
 
+.card .play img{
+    width: 35px;
+    height: 35px;
+}
 .card {
     position: relative;
 }
@@ -522,8 +526,8 @@ body {
         width: 92%;
     }
     .play {
-        top: 95px;
-        right: 12px;
+        top: 130px;
+        right: 20px;
     }
     .play img{
         width: 28px;
