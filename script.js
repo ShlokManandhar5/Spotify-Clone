@@ -22,7 +22,7 @@ function secondsToMinutesSeconds(seconds) {
 async function getSongs(folder) {
     currfolder = folder;
     let a = await fetch(`http://127.0.0.1:5500/${folder}/`);
-    console.log(folder);
+    // console.log(folder);
     let response = await a.text()
     // console.log(response);
     let div = document.createElement('div');
@@ -54,7 +54,7 @@ const playMusic = (track, pause = false) => {
 async function main() {
 
     //get the list of all the songs
-    songs = await getSongs("songs/kumaSagar");
+    songs = await getSongs("songs/elements");
     // console.log(songs);
     playMusic(songs[0], true);
     // console.log(songs);
@@ -141,6 +141,9 @@ async function main() {
             playMusic(songs[0])
         }
     })
+    // load the playlist when the card is clicked
+    
+
 }
 
 main();
