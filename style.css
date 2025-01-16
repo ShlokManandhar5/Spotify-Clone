@@ -488,6 +488,9 @@ body {
     .play img{
         width: 30px;
     }
+    .card img {
+        height: 135px;
+    }
 }
 
 @media screen and (max-width: 380px) {
