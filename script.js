@@ -1,5 +1,5 @@
 
-let currentSong= new Audio();
+let currentSong = new Audio();
 let songs;
 let currfolder;
 
@@ -14,13 +14,14 @@ function secondsToMinutesSeconds(seconds) {
     const formattedMinutes = String(minutes).padStart(2, '0');
     const formattedSeconds = String(remainingSeconds).padStart(2, '0');
 
+    // console.log(formattedMinutes, formattedSeconds);
     return `${formattedMinutes}:${formattedSeconds}`;
 }
 
 
 async function getSongs(folder) {
     currfolder = folder;
-    let a = await fetch(`http://127.0.0.1:5500/songs/${folder}/`);
+    let a = await fetch(`http://127.0.0.1:5500/${folder}/`);
     console.log(folder);
     let response = await a.text()
     // console.log(response);
@@ -40,7 +41,7 @@ async function getSongs(folder) {
 
 }
 
-const playMusic = (track, pause=false) => {
+const playMusic = (track, pause = false) => {
     currentSong.src = `/${currfolder}/` + track;
     if (!pause) {
         currentSong.play();
@@ -53,7 +54,7 @@ const playMusic = (track, pause=false) => {
 async function main() {
 
     //get the list of all the songs
-    songs = await getSongs("kumaSagar");
+    songs = await getSongs("songs/kumaSagar");
     // console.log(songs);
     playMusic(songs[0], true);
     // console.log(songs);
@@ -104,9 +105,9 @@ async function main() {
 
     // Add an event listener to the seekbarr
     document.querySelector(".seekBar").addEventListener('click', e => {
-        let percent=( e.offsetX/e.target.getBoundingClientRect().width) * 100;
+        let percent = (e.offsetX / e.target.getBoundingClientRect().width) * 100;
         document.querySelector(".circle").style.left = percent + "%";
-        currentSong.currentTime = ((currentSong.duration) * percent)/100;
+        currentSong.currentTime = ((currentSong.duration) * percent) / 100;
 
     })
 
@@ -121,22 +122,22 @@ async function main() {
     })
 
     // Add a event listener to previous and next
-    previous.addEventListener("click", ()=>{
+    previous.addEventListener("click", () => {
         // console.log("Previous clicked ");
         let index = songs.indexOf(currentSong.src.split('/').slice(-1)[0])
         // console.log(songs,index);
-        if((index - 1) >= 0){
-            playMusic(songs[index-1])
+        if ((index - 1) >= 0) {
+            playMusic(songs[index - 1])
         }
     })
-    next.addEventListener("click", ()=>{
+    next.addEventListener("click", () => {
         // console.log("Next clicked ");
         let index = songs.indexOf(currentSong.src.split('/').slice(-1)[0])
         // console.log(songs,index);
-        if((index + 1) < songs.length){
-            playMusic(songs[index+1])
+        if ((index + 1) < songs.length) {
+            playMusic(songs[index + 1])
         }
-        else{
+        else {
             playMusic(songs[0])
         }
     })
